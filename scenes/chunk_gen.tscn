@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b32ie2qex0gcg"]
+
+[ext_resource type="Script" uid="uid://fdedq1p745lf" path="res://scripts/chunk_gen.gd" id="1_ac566"]
+[ext_resource type="PackedScene" uid="uid://i0e523vpypbb" path="res://chunks/1.glb" id="2_l44pr"]
+[ext_resource type="PackedScene" uid="uid://bmqchjtmsjpr1" path="res://chunks/2.glb" id="3_vmbos"]
+[ext_resource type="PackedScene" uid="uid://cisvjp6oxw654" path="res://chunks/3.glb" id="4_83hdl"]
+
+[node name="ChunkGen" type="Node3D" unique_id=439269448]
+script = ExtResource("1_ac566")
+
+[node name="Chunks" type="Node3D" parent="." unique_id=700874445]
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="." unique_id=204391038]
+resources = [PackedStringArray("1", "2", "3"), [ExtResource("2_l44pr"), ExtResource("3_vmbos"), ExtResource("4_83hdl")]]
+
+[connection signal="chunk_changed" from="." to="." method="_on_chunk_changed"]
